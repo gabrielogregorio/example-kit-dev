@@ -1,0 +1,117 @@
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    es2021: true,
+    jest: true
+  },
+  extends: ['airbnb', 'plugin:prettier/recommended'],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  plugins: ['@typescript-eslint', 'spellcheck', 'sonarjs', 'import'],
+  settings: {
+    'import/resolver': {
+      typescript: {},
+    },
+  },
+  rules: {
+    'import/extensions': 'off',
+    'no-shadow': 'off',
+    'class-methods-use-this': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
+    '@typescript-eslint/no-unused-vars': ['error'],
+    'id-length': [2, { min: 3, properties: 'never', exceptions: ['id'] }],
+    '@typescript-eslint/no-duplicate-enum-values': 'error',
+    '@typescript-eslint/no-implicit-any-catch': 'error',
+    '@typescript-eslint/no-dynamic-delete': 'error',
+    '@typescript-eslint/no-explicit-any': 'error',
+    'max-lines': ['error', { max: 250, skipBlankLines: true, skipComments: true }],
+    'max-depth': ['error', 3],
+    'max-lines-per-function': ['error', { max: 200, skipBlankLines: true, skipComments: true }],
+    'max-params': ['error', { max: 4 }],
+    'no-alert': 'error',
+    'no-console': 'error',
+    'no-delete-var': 'error',
+    'no-const-assign': 'error',
+    'no-unreachable': 'error',
+    'no-magic-numbers': ['error', { ignore: [-1, 0, 1] }],
+    '@typescript-eslint/no-redeclare': 'error',
+    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/ban-types': 'error',
+    '@typescript-eslint/consistent-type-assertions': 'error',
+    '@typescript-eslint/consistent-type-definitions': 'error',
+    '@typescript-eslint/no-useless-empty-export': 'error',
+    '@typescript-eslint/ban-tslint-comment': 'error',
+    '@typescript-eslint/no-var-requires': 'error',
+    '@typescript-eslint/explicit-member-accessibility': 'error',
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        selector: 'interface',
+        format: ['PascalCase'],
+        custom: {
+          regex: '^I[A-Za-z]',
+          match: true,
+        },
+      },
+      {
+        selector: 'enum',
+        format: ['PascalCase'],
+        custom: {
+          regex: 'Enum$',
+          match: true,
+        },
+      },
+    ],
+
+    'spellcheck/spell-checker': [
+      1,
+      {
+        comments: false,
+        strings: false,
+        templates: false,
+        identifiers: true,
+        lang: 'en_US',
+        skipWords: [
+          'enum',
+          'checkbox',
+          'fieldset',
+          'readonly',
+          'href',
+          'emojis',
+          'Sao',
+          'Paulo',
+          'Gmt',
+          'Combobox',
+          'tsconfig',
+          'ecma',
+          'ecma',
+          'lang',
+          'eslintrc',
+          'eslintrc',
+        ],
+        minLength: 3,
+      },
+    ],
+    '@typescript-eslint/explicit-function-return-type': 'error',
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: true,
+      },
+    ],
+    'import/prefer-default-export': 'off',
+  },
+  overrides: [
+    {
+      files: ['*\\.js', '*\\.spec.ts', '*\\.spec.tsx', '*\\.test.ts', '*\\.test.ts'],
+      rules: {
+        'no-magic-numbers': ['off'],
+      },
+    },
+  ],
+};
