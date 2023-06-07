@@ -4,11 +4,7 @@
 coverage
 src
 .editorconfig
-.prettierignore
-.eslintignore
-.eslintrc.js
 babel.config.js
-.prettierrc
 jest.config.js
 tsconfig.json
 commitlint.config.js
